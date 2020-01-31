@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Theme } from "@material-ui/core/styles";
+import react from "react";
 import { Router, Switch, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import { ThemeProvider } from "@material-ui/styles";
@@ -11,12 +10,10 @@ import Images from "./Pages/Images";
 import ViewImage from "./Pages/ViewImage";
 import Videos from "./Pages/Videos";
 import ViewVideo from "./Pages/ViewVideo";
-import LightTheme from "../styles/light-theme";
-import DarkTheme from "../styles/dark-theme";
+import Theme from "../styles/theme";
 import "./App.css";
 
 const history = createBrowserHistory();
-const localTheme = window.localStorage.getItem("theme");
 
 // Scroll to top on route change
 history.listen(_ => {
@@ -24,22 +21,14 @@ history.listen(_ => {
 });
 
 export default function App() {
-  const [theme, setTheme] = useState<Theme>(localTheme === "dark" ? DarkTheme : LightTheme);
-
-  const toggleTheme = () => {
-    const prevIsLightTheme = theme === LightTheme;
-    prevIsLightTheme ? setTheme(DarkTheme) : setTheme(LightTheme);
-    window.localStorage.setItem("theme", prevIsLightTheme ? "dark" : "light");
-  };
-
   const title: string = "Dan Gough";
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={Theme}>
       <CssBaseline />
       <HelmetWrapper title={title} description={`${title}`}>
         <Router history={history}>
-          <Navigation toggleTheme={toggleTheme}>
+          <Navigation>
             <Switch>
               <Route
                 path="/"

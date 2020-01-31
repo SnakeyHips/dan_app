@@ -5,67 +5,30 @@ const useStylesBase = makeStyles((theme: Theme) =>
     root: {
       fontFamily: "Public Sans, sans-serif",
       display: "flex",
-      height: "100vh",
-      width: "100vw",
-      whiteSpace: "pre-line",
-      overflow: "hidden",
       "& a": {
-        textDecoration: "unset",
-        wordBreak: "break-word",
-        cursor: "pointer"
+        color: theme.palette.primary.main,
+        textDecoration: "unset"
       },
       "& p": {
-        fontSize: 16,
-        lineHeight: 1.88,
-        letterSpacing: 0.2,
-        marginTop: theme.spacing(1),
-        marginBottom: theme.spacing(1)
+        fontSize: "1rem",
+        lineHeight: 1.5,
+        letterSpacing: "0.00938em"
       },
-      "& span": {
-        fontSize: 14,
-        lineHeight: 1.43,
-        letterSpacing: 0.44
+      "& li": {
+        fontSize: "1rem",
+        lineHeight: 1.5,
+        letterSpacing: "0.00938em"
       },
       "& h6": {
-        fontSize: 24,
-        fontWeight: "bold",
-        lineHeight: 1.5,
-        letterSpacing: 0.24,
-        margin: 0
+        fontSize: "1.25rem",
+        fontWeight: 500,
+        lineHeight: 1.6,
+        letterSpacing: "0.0075em",
+        marginTop: 8,
+        marginBottom: 8
       },
-      "& .MuiPaper-elevation1": {
-        boxShadow:
-          theme.palette.type === "light" ? "0 2px 0 0 rgba(195, 209, 222, 0.65)" : "0 3px 0 0 rgba(0, 0, 0, 0.21)",
-        transition: "unset"
-      },
-      "& .MuiListItem-button:hover": {
-        backgroundColor: theme.palette.secondary.main,
-        borderRadius: 4
-      },
-      "& .MuiInput-underline:before": {
-        borderBottom: 0
-      },
-      "& .MuiInput-underline:after": {
-        borderBottom: 0
-      },
-      "& .MuiInput-underline:hover:not(.Mui-disabled):before": {
-        borderBottom: 0
-      },
-      "& .MuiSkeleton-root": {
-        backgroundColor: theme.palette.secondary.main,
-        borderRadius: 4
-      },
-      "@global": {
-        "*::-webkit-scrollbar": {
-          width: 6,
-          height: 6
-        },
-        "*::-webkit-scrollbar-thumb": {
-          backgroundColor: theme.palette.secondary.main
-        },
-        "*::-webkit-scrollbar-corner": {
-          background: "transparent"
-        }
+      "& .MuiExpansionPanel-root:before": {
+        backgroundColor: "unset !important"
       }
     },
     primaryText: {
@@ -84,12 +47,7 @@ const useStylesBase = makeStyles((theme: Theme) =>
         backgroundColor: "rgba(34, 183, 113, 0.09) !important"
       }
     },
-    adminPaper: {
-      width: "100%",
-      marginTop: theme.spacing(3),
-      marginBottom: theme.spacing(3)
-    },
-    stemPaper: {
+    paper: {
       padding: theme.spacing(3),
       marginBottom: theme.spacing(4)
     },

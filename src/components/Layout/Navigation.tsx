@@ -12,20 +12,19 @@ const useStyles = makeStyles({
 });
 
 interface NavigationProps {
-  toggleTheme: () => void;
   children: JSX.Element;
 }
 
 export default function Navigation(props: NavigationProps) {
   const classes = useStyles();
   const classesBase = useStylesBase();
-  const { toggleTheme, children } = props;
+  const { children } = props;
   const smAndDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
   const bottomNav = smAndDown ? <BottomNav /> : undefined;
 
   return (
     <div className={classesBase.root}>
-      <TopAppBar toggleTheme={toggleTheme} />
+      <TopAppBar />
       <main className={classes.content}>{children}</main>
       {bottomNav}
     </div>

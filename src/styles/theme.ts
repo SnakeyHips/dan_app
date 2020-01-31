@@ -1,7 +1,7 @@
 import { createMuiTheme, Theme, fade } from "@material-ui/core/styles";
 import grey from "@material-ui/core/colors/grey";
 
-const DarkTheme: Theme = createMuiTheme({
+const Theme: Theme = createMuiTheme({
   palette: {
     primary: {
       main: "#5990F2"
@@ -23,4 +23,4 @@ const DarkTheme: Theme = createMuiTheme({
   }
 });
 
-export default DarkTheme;
+export default Theme;

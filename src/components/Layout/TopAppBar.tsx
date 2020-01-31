@@ -8,8 +8,6 @@ import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import Brightness7Icon from "@material-ui/icons/Brightness7";
-import Brightness4Icon from "@material-ui/icons/Brightness4";
 import LinkButton from "../Layout/LinkButton";
 import facebooklogo from "../../assets/facebook.svg";
 import instagramlogo from "../../assets/instagram.svg";
@@ -35,15 +33,10 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-interface TopAppBarProps {
-  toggleTheme: () => void;
-}
-
-export default function TopAppBar(props: TopAppBarProps) {
+export default function TopAppBar() {
   const classes = useStyles();
   const classesBase = useStylesBase();
   const theme: Theme = useTheme();
-  const { toggleTheme } = props;
   const [anchorEl, setAnchorEl] = useState<undefined | HTMLElement>(undefined);
   const facebook: string = "https://facebook.com";
   const twitter: string = "https://twitter.com";
@@ -61,8 +54,6 @@ export default function TopAppBar(props: TopAppBarProps) {
   function handleSocialClick(url: string) {
     window.open(url);
   }
-
-  const themeIcon = theme.palette.type === "dark" ? <Brightness7Icon /> : <Brightness4Icon />;
 
   const smAndDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
 
@@ -93,7 +84,6 @@ export default function TopAppBar(props: TopAppBarProps) {
                 <MenuItem onClick={() => handleSocialClick(instagram)}>
                   <img className={classes.menuImage} src={instagramlogo} height="24" alt="instagramlogo" />
                 </MenuItem>
-                <MenuItem onClick={toggleTheme}>{themeIcon}</MenuItem>
               </Menu>
             </Grid>
           </Grid>
@@ -135,9 +125,6 @@ export default function TopAppBar(props: TopAppBarProps) {
               </IconButton>
               <IconButton color="primary" onClick={() => handleSocialClick(instagram)}>
                 <img src={instagramlogo} height="24" alt="instagramlogo" />
-              </IconButton>
-              <IconButton color="primary" onClick={toggleTheme}>
-                {themeIcon}
               </IconButton>
             </Grid>
           </Grid>
