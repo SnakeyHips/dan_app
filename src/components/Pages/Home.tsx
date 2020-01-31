@@ -17,7 +17,7 @@ import EmailIcon from "@material-ui/icons/Email";
 import PhoneIcon from "@material-ui/icons/Phone";
 import LinkButton from "../Layout/LinkButton";
 import homeimage from "../../assets/home.jpg";
-import mainImg from "../../assets/dandog.png";
+import mainImg from "../../assets/dandog.jpg";
 import avatar from "../../assets/dan.jpg";
 import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";

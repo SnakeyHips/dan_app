@@ -8,9 +8,7 @@ const useStylesBase = makeStyles((theme: Theme) =>
       height: "100vh",
       width: "100vw",
       whiteSpace: "pre-line",
-      overflow: "hidden"
-    },
-    overrides: {
+      overflow: "hidden",
       "& a": {
         textDecoration: "unset",
         wordBreak: "break-word",
@@ -57,10 +55,6 @@ const useStylesBase = makeStyles((theme: Theme) =>
         backgroundColor: theme.palette.secondary.main,
         borderRadius: 4
       },
-      "-ms-scrollbar-track-color": theme.palette.background.default,
-      "-ms-scrollbar-shadow-color": theme.palette.background.default,
-      "-ms-scrollbar-face-color": theme.palette.type === "dark" ? "#2C4879" : "#A2C3F3",
-      "-ms-scrollbar-arrow-color": theme.palette.type === "dark" ? "#2C4879" : "#A2C3F3",
       "@global": {
         "*::-webkit-scrollbar": {
           width: 6,
