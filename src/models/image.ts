@@ -1,14 +1,14 @@
-export interface Blog {
-  blogId: string;
+export default interface Image {
+  id: string;
   title: string;
   description: string;
   content: string;
   createdAt: string;
 }
 
-export const BlankBlog = () => {
+export const BlankImage = () => {
   return {
-    blogId: "",
+    id: "",
     title: "",
     description: "",
     content: "",

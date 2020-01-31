@@ -17,9 +17,8 @@ import EmailIcon from "@material-ui/icons/Email";
 import PhoneIcon from "@material-ui/icons/Phone";
 import LinkButton from "../Layout/LinkButton";
 import homeimage from "../../assets/home.jpg";
-import stemlogo from "../../assets/stem_green.png";
+import mainImg from "../../assets/dandog.png";
 import avatar from "../../assets/dan.jpg";
-import rec from "../../assets/rec.jpg";
 import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
 
@@ -52,7 +51,7 @@ export default function Home() {
   const classes = useStyles({});
   const classesBase = useStylesBase({});
   const smAndDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
-  const stemImg = <img className={classesBase.homeLogo} src={stemlogo} alt="" />;
+  const aboutImg = <img className={classesBase.homeLogo} src={mainImg} alt="" />;
 
   return (
     <div>
@@ -67,7 +66,7 @@ export default function Home() {
           </Grid>
           {smAndDown && (
             <Grid item sm={10} xs={12} className={clsx(classesBase.mb3, classesBase.textCenter)}>
-              {stemImg}
+              {aboutImg}
             </Grid>
           )}
           <Grid item md={6} sm={10} xs={12}>
@@ -83,7 +82,7 @@ export default function Home() {
           </Grid>
           {!smAndDown && (
             <Grid item md={2} className={classesBase.ml2}>
-              {stemImg}
+              {aboutImg}
             </Grid>
           )}
           <Grid item md={8} sm={10} xs={12} className={clsx(classesBase.mt3, classesBase.mb3)}>
