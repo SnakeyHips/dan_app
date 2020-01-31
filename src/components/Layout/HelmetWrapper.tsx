@@ -13,7 +13,7 @@ export default function HelmetWrapper(props: HelmetWrapperProps) {
       <Helmet>
         <title>{props.title}</title>
         <meta name="description" content={props.description} />
-        <meta name="theme-color" content="#FFFFFF" />
+        <meta name="theme-color" content="#1F2123" />
       </Helmet>
       {props.children}
     </div>

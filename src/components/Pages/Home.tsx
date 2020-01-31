@@ -56,7 +56,7 @@ export default function Home() {
   return (
     <div>
       <Grid container direction="column" justify="center">
-        <Grid item xs>
+        <Grid item xs={12}>
           <img src={homeimage} className={classesBase.headerImage} alt="" />
           <span className={classesBase.headerText}>Dan Gough</span>
         </Grid>
