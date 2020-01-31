@@ -93,9 +93,7 @@ export default function TopAppBar(props: TopAppBarProps) {
                 <MenuItem onClick={() => handleSocialClick(instagram)}>
                   <img className={classes.menuImage} src={instagramlogo} height="24" alt="instagramlogo" />
                 </MenuItem>
-                <MenuItem onClick={toggleTheme}>
-                  {themeIcon}
-                </MenuItem>
+                <MenuItem onClick={toggleTheme}>{themeIcon}</MenuItem>
               </Menu>
             </Grid>
           </Grid>

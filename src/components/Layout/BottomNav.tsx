@@ -37,7 +37,13 @@ export default function BottomNav() {
     <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
       <BottomNavigationAction label="Home" value="/" icon={<HomeIcon />} component={Link} to="/" />
       <BottomNavigationAction label="Images" value="/images" icon={<ImageIcon />} component={Link} to="/images" />
-      <BottomNavigationAction label="Videos" value="/videos" icon={<VideoLibraryIcon />} component={Link} to="/videos" />
+      <BottomNavigationAction
+        label="Videos"
+        value="/videos"
+        icon={<VideoLibraryIcon />}
+        component={Link}
+        to="/videos"
+      />
     </BottomNavigation>
   );
 }

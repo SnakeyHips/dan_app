@@ -21,5 +21,4 @@ export async function getVideo(id: string): Promise<Video> {
     console.log(e);
     return BlankVideo();
   }
-
 }
