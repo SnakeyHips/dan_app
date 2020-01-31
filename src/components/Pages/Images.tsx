@@ -1,6 +1,6 @@
 import React, { useState, useEffect, FormEvent, ChangeEvent } from "react";
 import Grid from "@material-ui/core/Grid";
-import blogsimage from "../../assets/blogs.jpg";
+import imagesimage from "../../assets/images.jpg";
 import TablePagination from "@material-ui/core/TablePagination";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import TextField from "@material-ui/core/TextField";
@@ -8,32 +8,32 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import Paper from "@material-ui/core/Paper";
 import LinkButton from "../Layout/LinkButton";
-import { Blog } from "../../models/blog";
+import Image from "../../models/image";
+import { getAllImages } from "../../services/image_service";
 import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
 
 export default function Images() {
   const classesBase = useStylesBase();
-  const [blogs, setBlogs] = useState<Blog[]>([]);
-  const [filteredBlogs, setFilteredBlogs] = useState<Blog[]>([]);
+  const [images, setImages] = useState<Image[]>([]);
+  const [filteredImages, setFilteredImages] = useState<Image[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [page, setPage] = useState<number>(0);
   const [rowsPerPage, setRowsPerPage] = useState<number>(3);
   const [searchTerm, setSearchTerm] = useState<string>("");
 
   useEffect(() => {
-    fetchBlogs();
-  }, [blogs]);
-
-  async function fetchBlogs() {
-    setLoading(true);
-    const result: Blog[] = await GetAllBlogs();
-    if (result) {
-      setBlogs(result);
-      setFilteredBlogs(result);
+    async function fetchImages() {
+      setLoading(true);
+      const result: Image[] = await getAllImages();
+      if (result) {
+        setImages(result);
+        setFilteredImages(result);
+      }
+      setLoading(false);
     }
-    setLoading(false);
-  }
+    fetchImages();
+  }, [images]);
 
   function handleChangePage(event: unknown, newPage: number) {
     setPage(newPage);
@@ -47,18 +47,18 @@ export default function Images() {
     event.preventDefault();
     const regex = new RegExp(`^.*${searchTerm}.*$`, "i");
     if (!searchTerm) {
-      setFilteredBlogs(blogs);
+      setFilteredImages(images);
     } else {
-      setFilteredBlogs(blogs.filter(blog => regex.test(blog.title)));
+      setFilteredImages(images.filter(blog => regex.test(blog.title)));
     }
   }
 
   const pagination =
-    filteredBlogs.length > 0 ? (
+    filteredImages.length > 0 ? (
       <TablePagination
         rowsPerPageOptions={[3, 5, 10]}
         component="div"
-        count={filteredBlogs.length}
+        count={filteredImages.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onChangePage={handleChangePage}
@@ -77,17 +77,17 @@ export default function Images() {
     </Grid>
   ) : (
     <>
-      {filteredBlogs.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((blog: Blog) => {
+      {filteredImages.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((image: Image) => {
         return (
-          <div key={blog.blogId}>
+          <div key={image.id}>
             <Paper elevation={0} className={classesBase.stemPaper}>
-              <h6 className={clsx(classesBase.primaryText, classesBase.textCenter)}>{blog.title}</h6>
-              <p>{blog.description}</p>
-              <p>{blog.content}</p>
+              <h6 className={clsx(classesBase.primaryText, classesBase.textCenter)}>{image.title}</h6>
+              <p>{image.description}</p>
+              <p>{image.content}</p>
               <p>...</p>
-              <p>Published: {blog.createdAt}</p>
+              <p>Published: {image.createdAt}</p>
               <Grid container justify="center">
-                <LinkButton className={classesBase.button} to={{ pathname: `/blog/${blog.blogId}` }}>
+                <LinkButton className={classesBase.button} to={{ pathname: `/image/${image.id}` }}>
                   View
                 </LinkButton>
               </Grid>
@@ -103,7 +103,7 @@ export default function Images() {
     <div>
       <Grid container direction="column" justify="center">
         <Grid item xs={12}>
-          <img src={blogsimage} className={classesBase.headerImage} alt="" />
+          <img src={imagesimage} className={classesBase.headerImage} alt="" />
           <span className={classesBase.headerText}>Images</span>
         </Grid>
         <Grid container justify="center" className={classesBase.contentContainer}>

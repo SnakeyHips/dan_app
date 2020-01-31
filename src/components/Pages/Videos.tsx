@@ -1,42 +1,39 @@
 import React, { useState, useEffect, FormEvent, ChangeEvent } from "react";
 import Grid from "@material-ui/core/Grid";
-import blogsimage from "../../assets/blogs.jpg";
+import videosimage from "../../assets/videos.jpg";
 import TablePagination from "@material-ui/core/TablePagination";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import Paper from "@material-ui/core/Paper";
-import ContentDom from "../Layout/ContentDom";
 import LinkButton from "../Layout/LinkButton";
-import { Blog } from "../../models/blog";
-import { GetAllBlogs } from "../../services/blog_service";
-import { ConvertDate } from "../../helpers/DateHelper";
+import Video from "../../models/video";
+import { getAllVideos } from "../../services/video_service";
 import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
 
 export default function Videos() {
   const classesBase = useStylesBase();
-  const [blogs, setBlogs] = useState<Blog[]>([]);
-  const [filteredBlogs, setFilteredBlogs] = useState<Blog[]>([]);
+  const [videos, setVideos] = useState<Video[]>([]);
+  const [filteredVideos, setFilteredVideos] = useState<Video[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [page, setPage] = useState<number>(0);
   const [rowsPerPage, setRowsPerPage] = useState<number>(3);
   const [searchTerm, setSearchTerm] = useState<string>("");
 
   useEffect(() => {
-    fetchBlogs();
-  }, [blogs.length]);
-
-  async function fetchBlogs() {
-    setLoading(true);
-    const result: Blog[] = await GetAllBlogs();
-    if (result) {
-      setBlogs(result);
-      setFilteredBlogs(result);
+    async function fetchVideos() {
+      setLoading(true);
+      const result: Video[] = await getAllVideos();
+      if (result) {
+        setVideos(result);
+        setFilteredVideos(result);
+      }
+      setLoading(false);
     }
-    setLoading(false);
-  }
+    fetchVideos();
+  }, [videos]);
 
   function handleChangePage(event: unknown, newPage: number) {
     setPage(newPage);
@@ -50,18 +47,18 @@ export default function Videos() {
     event.preventDefault();
     const regex = new RegExp(`^.*${searchTerm}.*$`, "i");
     if (!searchTerm) {
-      setFilteredBlogs(blogs);
+      setFilteredVideos(videos);
     } else {
-      setFilteredBlogs(blogs.filter(blog => regex.test(blog.title)));
+      setFilteredVideos(videos.filter(blog => regex.test(blog.title)));
     }
   }
 
   const pagination =
-    filteredBlogs.length > 0 ? (
+    filteredVideos.length > 0 ? (
       <TablePagination
         rowsPerPageOptions={[3, 5, 10]}
         component="div"
-        count={filteredBlogs.length}
+        count={filteredVideos.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onChangePage={handleChangePage}
@@ -80,17 +77,17 @@ export default function Videos() {
     </Grid>
   ) : (
     <>
-      {filteredBlogs.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((blog: Blog) => {
+      {filteredVideos.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((video: Video) => {
         return (
-          <div key={blog.blogId}>
+          <div key={video.id}>
             <Paper elevation={0} className={classesBase.stemPaper}>
-              <h6 className={clsx(classesBase.primaryText, classesBase.textCenter)}>{blog.title}</h6>
-              <p>{blog.description}</p>
-              <ContentDom className={classesBase.shortContentDom} content={blog.content} />
+              <h6 className={clsx(classesBase.primaryText, classesBase.textCenter)}>{video.title}</h6>
+              <p>{video.description}</p>
+              <p>{video.content}</p>
               <p>...</p>
-              <p>Published: {ConvertDate(blog.createdAt)}</p>
+              <p>Published: {video.createdAt}</p>
               <Grid container justify="center">
-                <LinkButton className={classesBase.button} to={{ pathname: `/blog/${blog.blogId}` }}>
+                <LinkButton className={classesBase.button} to={{ pathname: `/video/${video.id}` }}>
                   View
                 </LinkButton>
               </Grid>
@@ -106,8 +103,8 @@ export default function Videos() {
     <div>
       <Grid container direction="column" justify="center">
         <Grid item xs={12}>
-          <img src={blogsimage} className={classesBase.headerImage} alt="" />
-          <span className={classesBase.headerText}>Blogs</span>
+          <img src={videosimage} className={classesBase.headerImage} alt="" />
+          <span className={classesBase.headerText}>Videos</span>
         </Grid>
         <Grid container justify="center" className={classesBase.contentContainer}>
           <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
