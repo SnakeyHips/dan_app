@@ -1,8 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  ChangeEvent
-} from "react";
+import React, { useState, useEffect, ChangeEvent } from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
@@ -39,39 +35,11 @@ export default function BottomNav() {
   }
 
   return (
-    <BottomNavigation
-      value={value}
-      onChange={handleChange}
-      className={classes.root}
-    >
-      <BottomNavigationAction
-        label="Home"
-        value="/"
-        icon={<HomeIcon />}
-        component={Link}
-        to="/"
-      />
-      <BottomNavigationAction
-        label="Services"
-        value="/services"
-        icon={<PagesIcon />}
-        component={Link}
-        to="/services"
-      />
-      <BottomNavigationAction
-        label="Jobs"
-        value="/jobs"
-        icon={<AssignmentIcon />}
-        component={Link}
-        to="/jobs"
-      />
-      <BottomNavigationAction
-        label="Blogs"
-        value="/blogs"
-        icon={<EventNoteIcon />}
-        component={Link}
-        to="/blogs"
-      />
+    <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
+      <BottomNavigationAction label="Home" value="/" icon={<HomeIcon />} component={Link} to="/" />
+      <BottomNavigationAction label="Services" value="/services" icon={<PagesIcon />} component={Link} to="/services" />
+      <BottomNavigationAction label="Jobs" value="/jobs" icon={<AssignmentIcon />} component={Link} to="/jobs" />
+      <BottomNavigationAction label="Blogs" value="/blogs" icon={<EventNoteIcon />} component={Link} to="/blogs" />
     </BottomNavigation>
   );
 }

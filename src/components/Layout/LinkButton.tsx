@@ -10,12 +10,7 @@ interface LinkButtonProps {
 
 export default function LinkButton(props: LinkButtonProps) {
   return (
-    <Button
-      className={props.className}
-      color="primary"
-      component={Link}
-      to={props.to}
-    >
+    <Button className={props.className} color="primary" component={Link} to={props.to}>
       {props.children}
     </Button>
   );

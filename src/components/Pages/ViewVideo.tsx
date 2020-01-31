@@ -11,7 +11,7 @@ import useStylesBase from "../../styles/styles-base";
 import { useParams } from "react-router";
 import clsx from "clsx";
 
-export default function ViewBlog() {
+export default function ViewVideo() {
   const classesBase = useStylesBase();
   const [blog, setBlog] = useState<Blog>(BlankBlog());
   const [loading, setLoading] = useState<boolean>(false);
@@ -32,18 +32,12 @@ export default function ViewBlog() {
   }, [id]);
 
   const content = loading ? (
-    <Grid
-      container
-      justify="center"
-      className={clsx(classesBase.mt3, classesBase.mb3)}
-    >
+    <Grid container justify="center" className={clsx(classesBase.mt3, classesBase.mb3)}>
       <CircularProgress color="primary" />
     </Grid>
   ) : (
     <Paper key={blog.blogId} elevation={0} className={classesBase.viewPaper}>
-      <h6 className={clsx(classesBase.primaryText, classesBase.textCenter)}>
-        {blog.title}
-      </h6>
+      <h6 className={clsx(classesBase.primaryText, classesBase.textCenter)}>{blog.title}</h6>
       <p>{blog.description}</p>
       <div></div>
       <ContentDom content={blog.content} />

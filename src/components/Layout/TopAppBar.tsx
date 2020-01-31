@@ -1,5 +1,5 @@
 import React, { useState, MouseEvent } from "react";
-import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
+import { createStyles, Theme, makeStyles, useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -8,8 +8,9 @@ import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import Brightness7Icon from "@material-ui/icons/Brightness7";
+import Brightness4Icon from "@material-ui/icons/Brightness4";
 import LinkButton from "../Layout/LinkButton";
-import logo from "../../assets/stem_green.png";
 import facebooklogo from "../../assets/facebook.svg";
 import instagramlogo from "../../assets/instagram.svg";
 import linkedinlogo from "../../assets/linkedin.svg";
@@ -41,14 +42,13 @@ interface TopAppBarProps {
 export default function TopAppBar(props: TopAppBarProps) {
   const classes = useStyles();
   const classesBase = useStylesBase();
+  const theme: Theme = useTheme();
   const { toggleTheme } = props;
   const [anchorEl, setAnchorEl] = useState<undefined | HTMLElement>(undefined);
-  const facebook: string =
-    "https://facebook.com/Stem-Skills-Recruitment-Ltd-107387030612608";
-  const twitter: string = "https://twitter.com/StemRecruitLtd";
-  const linkedIn: string =
-    "https://linkedin.com/company/stem-skills-recruitment-ltd/";
-  const instagram: string = "https://instagram.com/stemskillsrecruitment";
+  const facebook: string = "https://facebook.com";
+  const twitter: string = "https://twitter.com";
+  const linkedIn: string = "https://linkedin.com";
+  const instagram: string = "https://instagram.com";
 
   function handleClick(event: MouseEvent<HTMLButtonElement>) {
     setAnchorEl(event.currentTarget);
@@ -62,69 +62,39 @@ export default function TopAppBar(props: TopAppBarProps) {
     window.open(url);
   }
 
-  const smAndDown = useMediaQuery((theme: Theme) =>
-    theme.breakpoints.down("sm")
-  );
+  const themeIcon = theme.palette.type === "dark" ? <Brightness7Icon /> : <Brightness4Icon />;
+
+  const smAndDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+
   const topAppBar = smAndDown ? (
     <AppBar position="fixed" className={classes.appBar}>
       <Toolbar>
         <Grid container alignItems="center">
           <Grid item xs>
-            <Grid container>
-              <img src={logo} height="28" alt="" />
-            </Grid>
-          </Grid>
-          <Grid item xs>
             <Grid container justify="center">
-              <h6>Stem</h6>
+              <h6>Dan Gough</h6>
             </Grid>
           </Grid>
           <Grid item xs>
             <Grid container justify="flex-end">
-              <IconButton
-                className={classes.moreButton}
-                color="primary"
-                onClick={handleClick}
-              >
+              <IconButton className={classes.moreButton} color="primary" onClick={handleClick}>
                 <MoreVertIcon />
               </IconButton>
-              <Menu
-                anchorEl={anchorEl}
-                keepMounted
-                open={Boolean(anchorEl)}
-                onClose={handleClose}
-              >
+              <Menu anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
                 <MenuItem onClick={() => handleSocialClick(facebook)}>
-                  <img
-                    className={classes.menuImage}
-                    src={facebooklogo}
-                    height="24"
-                    alt=""
-                  />
+                  <img className={classes.menuImage} src={facebooklogo} height="24" alt="facebooklogo" />
                 </MenuItem>
                 <MenuItem onClick={() => handleSocialClick(twitter)}>
-                  <img
-                    className={classes.menuImage}
-                    src={twitterlogo}
-                    height="24"
-                    alt=""
-                  />
+                  <img className={classes.menuImage} src={twitterlogo} height="24" alt="twitterlogo" />
                 </MenuItem>
                 <MenuItem onClick={() => handleSocialClick(linkedIn)}>
-                  <img
-                    className={classes.menuImage}
-                    src={linkedinlogo}
-                    height="24"
-                    alt=""
-                  />
+                  <img className={classes.menuImage} src={linkedinlogo} height="24" alt="linkedinlogo" />
                 </MenuItem>
                 <MenuItem onClick={() => handleSocialClick(instagram)}>
-                  <img
-                    className={classes.menuImage}
-                    src={instagramlogo}
-                    height="24"
-                    alt=""
-                  />
+                  <img className={classes.menuImage} src={instagramlogo} height="24" alt="instagramlogo" />
+                </MenuItem>
+                <MenuItem onClick={toggleTheme}>
+                  {themeIcon}
                 </MenuItem>
               </Menu>
             </Grid>
@@ -138,8 +108,7 @@ export default function TopAppBar(props: TopAppBarProps) {
         <Grid container alignItems="center">
           <Grid item xs>
             <Grid container alignItems="center">
-              <img className={classes.logo} src={logo} height="28" alt="" />
-              <h6>Stem</h6>
+              <h6>Dan Gough</h6>
             </Grid>
           </Grid>
           <Grid item xs>
@@ -147,42 +116,33 @@ export default function TopAppBar(props: TopAppBarProps) {
               <LinkButton className={classesBase.button} to="/">
                 Home
               </LinkButton>
-              <LinkButton className={classesBase.button} to="/services">
-                Services
+              <LinkButton className={classesBase.button} to="/images">
+                Images
               </LinkButton>
-              <LinkButton className={classesBase.button} to="/jobs">
-                Jobs
+              <LinkButton className={classesBase.button} to="/videos">
+                Videos
               </LinkButton>
-              <LinkButton className={classesBase.button} to="/blogs">
-                Blogs
+              <LinkButton className={classesBase.button} to="/contact">
+                Contact
               </LinkButton>
             </Grid>
           </Grid>
           <Grid item xs>
             <Grid container justify="flex-end">
-              <IconButton
-                color="primary"
-                onClick={() => handleSocialClick(facebook)}
-              >
-                <img src={facebooklogo} height="24" alt="" />
+              <IconButton color="primary" onClick={() => handleSocialClick(facebook)}>
+                <img src={facebooklogo} height="24" alt="facebooklogo" />
               </IconButton>
-              <IconButton
-                color="primary"
-                onClick={() => handleSocialClick(twitter)}
-              >
-                <img src={twitterlogo} height="24" alt="" />
+              <IconButton color="primary" onClick={() => handleSocialClick(twitter)}>
+                <img src={twitterlogo} height="24" alt="twitterlogo" />
               </IconButton>
-              <IconButton
-                color="primary"
-                onClick={() => handleSocialClick(linkedIn)}
-              >
-                <img src={linkedinlogo} height="24" alt="" />
+              <IconButton color="primary" onClick={() => handleSocialClick(linkedIn)}>
+                <img src={linkedinlogo} height="24" alt="linkedinlogo" />
               </IconButton>
-              <IconButton
-                color="primary"
-                onClick={() => handleSocialClick(instagram)}
-              >
-                <img src={instagramlogo} height="24" alt="" />
+              <IconButton color="primary" onClick={() => handleSocialClick(instagram)}>
+                <img src={instagramlogo} height="24" alt="instagramlogo" />
+              </IconButton>
+              <IconButton color="primary" onClick={toggleTheme}>
+                {themeIcon}
               </IconButton>
             </Grid>
           </Grid>

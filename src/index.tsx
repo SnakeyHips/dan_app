@@ -8,9 +8,6 @@ import App from "./components/App";
 import theme from "./styles/light-theme";
 import * as serviceWorker from "./serviceWorker";
 
-ReactDOM.render(
-    <App />,
-  document.querySelector("#root")
-);
+ReactDOM.render(<App />, document.querySelector("#root"));
 
 serviceWorker.unregister();

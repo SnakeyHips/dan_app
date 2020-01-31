@@ -51,12 +51,8 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function Home() {
   const classes = useStyles({});
   const classesBase = useStylesBase({});
-  const smAndDown = useMediaQuery((theme: Theme) =>
-    theme.breakpoints.down("sm")
-  );
-  const stemImg = (
-    <img className={classesBase.homeLogo} src={stemlogo} alt="" />
-  );
+  const smAndDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+  const stemImg = <img className={classesBase.homeLogo} src={stemlogo} alt="" />;
 
   return (
     <div>
@@ -69,46 +65,33 @@ export default function Home() {
             Growing your career
           </div>
         </Grid>
-        <Grid
-          container
-          justify="center"
-          className={classesBase.contentContainer}
-        >
+        <Grid container justify="center" className={classesBase.contentContainer}>
           <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
             <h4 className={classesBase.contentTitle}>Who We Are</h4>
           </Grid>
           {smAndDown && (
-            <Grid
-              item
-              sm={10}
-              xs={12}
-              className={clsx(classesBase.mb3, classesBase.textCenter)}
-            >
+            <Grid item sm={10} xs={12} className={clsx(classesBase.mb3, classesBase.textCenter)}>
               {stemImg}
             </Grid>
           )}
           <Grid item md={6} sm={10} xs={12}>
             <p>
-              Stem Skills &amp; Recruitment is a specialist recruitment
-              consultancy, which also aims to support the growth of industries
-              it recruits for.
+              Stem Skills &amp; Recruitment is a specialist recruitment consultancy, which also aims to support the
+              growth of industries it recruits for.
             </p>
             <p>
-              Based in Wales, we provide expertise in recruitment for Science,
-              Technology, Engineering and Manufacturing businesses across the
-              region.
+              Based in Wales, we provide expertise in recruitment for Science, Technology, Engineering and Manufacturing
+              businesses across the region.
             </p>
             <p>
-              Our approach to recruitment is simple and transparent, and whilst
-              providing short-term solutions to find you the right candidate or
-              job, we also invest into long-term solutions for your recruitment
-              and career needs.
+              Our approach to recruitment is simple and transparent, and whilst providing short-term solutions to find
+              you the right candidate or job, we also invest into long-term solutions for your recruitment and career
+              needs.
             </p>
             <p>
-              Whether you are a business looking to recruit, or a candidate
-              looking to take the next step in your career, then we are here to
-              listen to your requirements and expectations, offer market advice
-              and knowledge, and work with you to find you the right match.
+              Whether you are a business looking to recruit, or a candidate looking to take the next step in your
+              career, then we are here to listen to your requirements and expectations, offer market advice and
+              knowledge, and work with you to find you the right match.
             </p>
           </Grid>
           {!smAndDown && (
@@ -116,50 +99,22 @@ export default function Home() {
               {stemImg}
             </Grid>
           )}
-          <Grid
-            item
-            md={8}
-            sm={10}
-            xs={12}
-            className={clsx(classesBase.mt3, classesBase.mb3)}
-          >
-            <h4
-              className={clsx(
-                classesBase.mt3,
-                classesBase.mb3,
-                classesBase.contentTitle
-              )}
-            >
-              What We Do
-            </h4>
-            <ExpansionPanel
-              elevation={0}
-              defaultExpanded={true}
-              className={classesBase.mb3}
-            >
+          <Grid item md={8} sm={10} xs={12} className={clsx(classesBase.mt3, classesBase.mb3)}>
+            <h4 className={clsx(classesBase.mt3, classesBase.mb3, classesBase.contentTitle)}>What We Do</h4>
+            <ExpansionPanel elevation={0} defaultExpanded={true} className={classesBase.mb3}>
               <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                 <p className={classes.expansionSummary}>Clients</p>
               </ExpansionPanelSummary>
               <ExpansionPanelDetails>
-                <Grid
-                  container
-                  direction="column"
-                  justify="center"
-                  alignItems="center"
-                >
+                <Grid container direction="column" justify="center" alignItems="center">
                   <Grid item>
                     <p>
-                      Stem Skills &amp; Recruitment supports science, technology, engineering and
-                      manufacturing businesses in Wales by providing permanent
-                      recruitment services. We provide experience and expertise
-                      in recruiting for a wide range of roles and are dedicated
-                      to finding the right candidates to help your business
-                      grow. Take a look at our client services page to find out
-                      more information, or if you have a vacancy and need help,
-                      then email{" "}
-                      <a href="mailto:info@stemrecruit.co.uk">
-                        info@stemrecruit.co.uk.
-                      </a>
+                      Stem Skills &amp; Recruitment supports science, technology, engineering and manufacturing
+                      businesses in Wales by providing permanent recruitment services. We provide experience and
+                      expertise in recruiting for a wide range of roles and are dedicated to finding the right
+                      candidates to help your business grow. Take a look at our client services page to find out more
+                      information, or if you have a vacancy and need help, then email{" "}
+                      <a href="mailto:info@stemrecruit.co.uk">info@stemrecruit.co.uk.</a>
                     </p>
                   </Grid>
                   <Grid item>
@@ -175,26 +130,15 @@ export default function Home() {
                 <p className={classes.expansionSummary}>Candidates</p>
               </ExpansionPanelSummary>
               <ExpansionPanelDetails>
-                <Grid
-                  container
-                  direction="column"
-                  justify="center"
-                  alignItems="center"
-                >
+                <Grid container direction="column" justify="center" alignItems="center">
                   <Grid item>
                     <p>
-                      If you’re looking to take the next step in your career,
-                      then we can help. All of our services to candidates may be
-                      free, but we take the same time and care in finding YOU
-                      the right fit as we do for our clients. To see our current
-                      job opportunities with our clients, take a look at our
-                      find a job page, or alternatively you can register with us
-                      by sending your CV to{" "}
-                      <a href="mailto:jobs@stemrecruit.co.uk">
-                        jobs@stemrecruit.co.uk.
-                      </a>{" "}
-                      and we will be in contact as soon as we have any suitable
-                      job opportunities.
+                      If you’re looking to take the next step in your career, then we can help. All of our services to
+                      candidates may be free, but we take the same time and care in finding YOU the right fit as we do
+                      for our clients. To see our current job opportunities with our clients, take a look at our find a
+                      job page, or alternatively you can register with us by sending your CV to{" "}
+                      <a href="mailto:jobs@stemrecruit.co.uk">jobs@stemrecruit.co.uk.</a> and we will be in contact as
+                      soon as we have any suitable job opportunities.
                     </p>
                   </Grid>
                   <Grid item>
@@ -209,65 +153,36 @@ export default function Home() {
           <Grid item sm={10} xs={12}>
             <Divider className={classes.divider} />
           </Grid>
-          <Grid
-            item
-            md={4}
-            sm={10}
-            xs={12}
-            className={clsx(
-              classesBase.mt3,
-              classesBase.mb3,
-              classesBase.textCenter
-            )}
-          >
+          <Grid item md={4} sm={10} xs={12} className={clsx(classesBase.mt3, classesBase.mb3, classesBase.textCenter)}>
             <Avatar src={avatar} alt="" className={classes.avatar} />
             <h6>JACK TAYLOR</h6>
             <h6>Founder &amp; Recruitment Consultant</h6>
           </Grid>
           <Grid item md={4} sm={10} xs={12}>
-            <Grid
-              container
-              justify="center"
-              alignItems="center"
-              className={classes.fillHeight}
-            >
+            <Grid container justify="center" alignItems="center" className={classes.fillHeight}>
               <p>
-                I am a personable and technical recruiter with a simple and
-                transparent approach that has both client and candidate
-                satisfaction at its core. I offer extensive market knowledge of
-                the science, technology, engineering and manufacturing
-                industries in Wales, along with a large network of candidates
-                and clients. I have recruited for a variety of companies; from
-                start-ups and SMEs, right through to blue-chip organisations and
-                global brands.
+                I am a personable and technical recruiter with a simple and transparent approach that has both client
+                and candidate satisfaction at its core. I offer extensive market knowledge of the science, technology,
+                engineering and manufacturing industries in Wales, along with a large network of candidates and clients.
+                I have recruited for a variety of companies; from start-ups and SMEs, right through to blue-chip
+                organisations and global brands.
               </p>
             </Grid>
           </Grid>
           <Grid item md={4} sm={10} xs={12} className={classesBase.mb3}>
-            <Grid
-              container
-              justify="center"
-              alignItems="center"
-              className={classes.fillHeight}
-            >
+            <Grid container justify="center" alignItems="center" className={classes.fillHeight}>
               <List>
                 <ListItem>
                   <ListItemIcon>
                     <LocationOnIcon color="primary" fontSize="large" />
                   </ListItemIcon>
-                  <ListItemText
-                    primary="Location"
-                    secondary="Welsh ICE, Caerphilly, CF83 3GG"
-                  />
+                  <ListItemText primary="Location" secondary="Welsh ICE, Caerphilly, CF83 3GG" />
                 </ListItem>
                 <ListItem>
                   <ListItemIcon>
                     <EmailIcon color="primary" fontSize="large" />
                   </ListItemIcon>
-                  <ListItemText
-                    primary="Email"
-                    secondary="jack.taylor@stemrecruit.co.uk"
-                  />
+                  <ListItemText primary="Email" secondary="jack.taylor@stemrecruit.co.uk" />
                 </ListItem>
                 <ListItem>
                   <ListItemIcon>

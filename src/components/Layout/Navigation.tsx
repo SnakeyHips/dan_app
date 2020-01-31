@@ -20,9 +20,7 @@ export default function Navigation(props: NavigationProps) {
   const classes = useStyles();
   const classesBase = useStylesBase();
   const { toggleTheme, children } = props;
-  const smAndDown = useMediaQuery((theme: Theme) =>
-    theme.breakpoints.down("sm")
-  );
+  const smAndDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
   const bottomNav = smAndDown ? <BottomNav /> : undefined;
 
   return (

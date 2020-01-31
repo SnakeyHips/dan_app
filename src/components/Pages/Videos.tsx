@@ -1,9 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  FormEvent,
-  ChangeEvent
-} from "react";
+import React, { useState, useEffect, FormEvent, ChangeEvent } from "react";
 import Grid from "@material-ui/core/Grid";
 import blogsimage from "../../assets/blogs.jpg";
 import TablePagination from "@material-ui/core/TablePagination";
@@ -20,7 +15,7 @@ import { ConvertDate } from "../../helpers/DateHelper";
 import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
 
-export default function StemBlogs() {
+export default function Videos() {
   const classesBase = useStylesBase();
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [filteredBlogs, setFilteredBlogs] = useState<Blog[]>([]);
@@ -80,48 +75,29 @@ export default function StemBlogs() {
     );
 
   const content = loading ? (
-    <Grid
-      container
-      justify="center"
-      className={clsx(classesBase.mt3, classesBase.mb3)}
-    >
+    <Grid container justify="center" className={clsx(classesBase.mt3, classesBase.mb3)}>
       <CircularProgress color="primary" />
     </Grid>
   ) : (
     <>
-      {filteredBlogs
-        .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-        .map((blog: Blog) => {
-          return (
-            <div key={blog.blogId}>
-              <Paper elevation={0} className={classesBase.stemPaper}>
-                <h6
-                  className={clsx(
-                    classesBase.primaryText,
-                    classesBase.textCenter
-                  )}
-                >
-                  {blog.title}
-                </h6>
-                <p>{blog.description}</p>
-                <ContentDom
-                  className={classesBase.shortContentDom}
-                  content={blog.content}
-                />
-                <p>...</p>
-                <p>Published: {ConvertDate(blog.createdAt)}</p>
-                <Grid container justify="center">
-                  <LinkButton
-                    className={classesBase.button}
-                    to={{ pathname: `/blog/${blog.blogId}` }}
-                  >
-                    View
-                  </LinkButton>
-                </Grid>
-              </Paper>
-            </div>
-          );
-        })}
+      {filteredBlogs.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((blog: Blog) => {
+        return (
+          <div key={blog.blogId}>
+            <Paper elevation={0} className={classesBase.stemPaper}>
+              <h6 className={clsx(classesBase.primaryText, classesBase.textCenter)}>{blog.title}</h6>
+              <p>{blog.description}</p>
+              <ContentDom className={classesBase.shortContentDom} content={blog.content} />
+              <p>...</p>
+              <p>Published: {ConvertDate(blog.createdAt)}</p>
+              <Grid container justify="center">
+                <LinkButton className={classesBase.button} to={{ pathname: `/blog/${blog.blogId}` }}>
+                  View
+                </LinkButton>
+              </Grid>
+            </Paper>
+          </div>
+        );
+      })}
       {pagination}
     </>
   );
@@ -133,34 +109,23 @@ export default function StemBlogs() {
           <img src={blogsimage} className={classesBase.headerImage} alt="" />
           <div className={classesBase.headerText}>Blogs</div>
         </Grid>
-        <Grid
-          container
-          justify="center"
-          className={classesBase.contentContainer}
-        >
+        <Grid container justify="center" className={classesBase.contentContainer}>
           <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
-            <h4 className={clsx(classesBase.contentTitle, classesBase.mb3)}>
-              News &amp; Advice Blogs
-            </h4>
+            <h4 className={clsx(classesBase.contentTitle, classesBase.mb3)}>News &amp; Advice Blogs</h4>
             <p>
-              Keep up to date with the latest industry news, as well as regular
-              activites offering recruitment and careers advice provided by Stem Skills &amp; Recruitment.
+              Keep up to date with the latest industry news, as well as regular activites offering recruitment and
+              careers advice provided by Stem Skills &amp; Recruitment.
             </p>
           </Grid>
           <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
             <form onSubmit={handleSubmitSearch}>
               <TextField
-                className={clsx(
-                  classesBase.textField,
-                  classesBase.whiteTextField
-                )}
+                className={clsx(classesBase.textField, classesBase.whiteTextField)}
                 variant="filled"
                 margin="dense"
                 fullWidth
                 hiddenLabel
-                onChange={(event: ChangeEvent<HTMLInputElement>) =>
-                  setSearchTerm(event.target.value)
-                }
+                onChange={(event: ChangeEvent<HTMLInputElement>) => setSearchTerm(event.target.value)}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
