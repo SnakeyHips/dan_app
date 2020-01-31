@@ -2,33 +2,31 @@ import React, { useState, useEffect } from "react";
 import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Paper from "@material-ui/core/Paper";
-import ContentDom from "../Layout/ContentDom";
 import LinkButton from "../Layout/LinkButton";
-import { Job, BlankJob } from "../../models/job";
-import { GetJob } from "../../services/job_service";
-import { ConvertDate } from "../../helpers/DateHelper";
+import Image, { BlankImage } from "../../models/image";
+import { getImage } from "../../services/image_service";
 import useStylesBase from "../../styles/styles-base";
 import { useParams } from "react-router";
 import clsx from "clsx";
 
 export default function ViewImage() {
   const classesBase = useStylesBase();
-  const [job, setJob] = useState<Job>(BlankJob());
+  const [image, setImage] = useState<Image>(BlankImage());
   const [loading, setLoading] = useState<boolean>(false);
   const { id } = useParams();
 
   useEffect(() => {
-    async function fetchJob() {
+    async function fetchImage() {
       if (id) {
         setLoading(true);
-        const result = await GetJob(id);
+        const result = await getImage(id);
         if (result) {
-          setJob(result);
+          setImage(result);
         }
         setLoading(false);
       }
     }
-    fetchJob();
+    fetchImage();
   }, [id]);
 
   const content = loading ? (
@@ -36,18 +34,12 @@ export default function ViewImage() {
       <CircularProgress color="primary" />
     </Grid>
   ) : (
-    <Paper key={job.jobId} elevation={0} className={classesBase.viewPaper}>
-      <h6 className={clsx(classesBase.primaryText, classesBase.textCenter)}>{job.title}</h6>
-      <h6>Salary - Benefits</h6>
-      <p>{`${job.salary} - ${job.benefits}`}</p>
-      <h6>Type</h6>
-      <p>{job.jobType}</p>
-      <h6>Location</h6>
-      <p>{job.jobLocation}</p>
-      <h6>Reference</h6>
-      <p>{job.jobReference}</p>
-      <ContentDom content={job.description} />
-      <p>Published: {ConvertDate(job.createdAt)}</p>
+    <Paper key={image.id} elevation={0} className={classesBase.viewPaper}>
+      <h6 className={clsx(classesBase.primaryText, classesBase.textCenter)}>{image.title}</h6>
+      <p>{image.description}</p>
+      <div></div>
+      <p>{image.content}</p>
+      <p>Published: {image.createdAt}</p>
     </Paper>
   );
 
@@ -58,8 +50,8 @@ export default function ViewImage() {
           {content}
         </Grid>
         <Grid container justify="center" className={classesBase.mb3}>
-          <LinkButton className={classesBase.button} to="/jobs">
-            Jobs
+          <LinkButton className={classesBase.button} to="/images">
+            Images
           </LinkButton>
         </Grid>
       </Grid>
