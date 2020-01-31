@@ -18,7 +18,7 @@ import PhoneIcon from "@material-ui/icons/Phone";
 import LinkButton from "../Layout/LinkButton";
 import homeimage from "../../assets/home.jpg";
 import stemlogo from "../../assets/stem_green.png";
-import avatar from "../../assets/jack.jpg";
+import avatar from "../../assets/dan.jpg";
 import rec from "../../assets/rec.jpg";
 import useStylesBase from "../../styles/styles-base";
 import clsx from "clsx";
@@ -59,15 +59,11 @@ export default function Home() {
       <Grid container direction="column" justify="center">
         <Grid item xs>
           <img src={homeimage} className={classesBase.headerImage} alt="" />
-          <div className={classesBase.headerText}>
-            Growing your business
-            <br />
-            Growing your career
-          </div>
+          <span className={classesBase.headerText}>Dan Gough</span>
         </Grid>
         <Grid container justify="center" className={classesBase.contentContainer}>
           <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
-            <h4 className={classesBase.contentTitle}>Who We Are</h4>
+            <h4 className={classesBase.contentTitle}>Who I am</h4>
           </Grid>
           {smAndDown && (
             <Grid item sm={10} xs={12} className={clsx(classesBase.mb3, classesBase.textCenter)}>
@@ -76,22 +72,13 @@ export default function Home() {
           )}
           <Grid item md={6} sm={10} xs={12}>
             <p>
-              Stem Skills &amp; Recruitment is a specialist recruitment consultancy, which also aims to support the
-              growth of industries it recruits for.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
             <p>
-              Based in Wales, we provide expertise in recruitment for Science, Technology, Engineering and Manufacturing
-              businesses across the region.
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
             </p>
             <p>
-              Our approach to recruitment is simple and transparent, and whilst providing short-term solutions to find
-              you the right candidate or job, we also invest into long-term solutions for your recruitment and career
-              needs.
-            </p>
-            <p>
-              Whether you are a business looking to recruit, or a candidate looking to take the next step in your
-              career, then we are here to listen to your requirements and expectations, offer market advice and
-              knowledge, and work with you to find you the right match.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
           </Grid>
           {!smAndDown && (
@@ -100,26 +87,22 @@ export default function Home() {
             </Grid>
           )}
           <Grid item md={8} sm={10} xs={12} className={clsx(classesBase.mt3, classesBase.mb3)}>
-            <h4 className={clsx(classesBase.mt3, classesBase.mb3, classesBase.contentTitle)}>What We Do</h4>
+            <h4 className={clsx(classesBase.mt3, classesBase.mb3, classesBase.contentTitle)}>What I Do</h4>
             <ExpansionPanel elevation={0} defaultExpanded={true} className={classesBase.mb3}>
               <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                <p className={classes.expansionSummary}>Clients</p>
+                <p className={classes.expansionSummary}>Images</p>
               </ExpansionPanelSummary>
               <ExpansionPanelDetails>
                 <Grid container direction="column" justify="center" alignItems="center">
                   <Grid item>
                     <p>
-                      Stem Skills &amp; Recruitment supports science, technology, engineering and manufacturing
-                      businesses in Wales by providing permanent recruitment services. We provide experience and
-                      expertise in recruiting for a wide range of roles and are dedicated to finding the right
-                      candidates to help your business grow. Take a look at our client services page to find out more
-                      information, or if you have a vacancy and need help, then email{" "}
-                      <a href="mailto:info@stemrecruit.co.uk">info@stemrecruit.co.uk.</a>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.{" "}
+                      <a href="mailto:Gough.Dan@hotmail.com">Gough.Dan@hotmail.com.</a>
                     </p>
                   </Grid>
                   <Grid item>
-                    <LinkButton className={classes.button} to="/services">
-                      Services
+                    <LinkButton className={classes.button} to="/images">
+                      Images
                     </LinkButton>
                   </Grid>
                 </Grid>
@@ -127,23 +110,19 @@ export default function Home() {
             </ExpansionPanel>
             <ExpansionPanel elevation={0} className={classesBase.mb3}>
               <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                <p className={classes.expansionSummary}>Candidates</p>
+                <p className={classes.expansionSummary}>Videos</p>
               </ExpansionPanelSummary>
               <ExpansionPanelDetails>
                 <Grid container direction="column" justify="center" alignItems="center">
                   <Grid item>
                     <p>
-                      If you’re looking to take the next step in your career, then we can help. All of our services to
-                      candidates may be free, but we take the same time and care in finding YOU the right fit as we do
-                      for our clients. To see our current job opportunities with our clients, take a look at our find a
-                      job page, or alternatively you can register with us by sending your CV to{" "}
-                      <a href="mailto:jobs@stemrecruit.co.uk">jobs@stemrecruit.co.uk.</a> and we will be in contact as
-                      soon as we have any suitable job opportunities.
+                      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?{" "}
+                      <a href="mailto:Gough.Dan@hotmail.com">Gough.Dan@hotmail.com.</a>
                     </p>
                   </Grid>
                   <Grid item>
-                    <LinkButton className={classes.button} to="/jobs">
-                      Jobs
+                    <LinkButton className={classes.button} to="/videos">
+                      Videos
                     </LinkButton>
                   </Grid>
                 </Grid>
@@ -155,17 +134,13 @@ export default function Home() {
           </Grid>
           <Grid item md={4} sm={10} xs={12} className={clsx(classesBase.mt3, classesBase.mb3, classesBase.textCenter)}>
             <Avatar src={avatar} alt="" className={classes.avatar} />
-            <h6>JACK TAYLOR</h6>
-            <h6>Founder &amp; Recruitment Consultant</h6>
+            <h6>DAN GOUGH</h6>
+            <h6>Give me money</h6>
           </Grid>
           <Grid item md={4} sm={10} xs={12}>
             <Grid container justify="center" alignItems="center" className={classes.fillHeight}>
               <p>
-                I am a personable and technical recruiter with a simple and transparent approach that has both client
-                and candidate satisfaction at its core. I offer extensive market knowledge of the science, technology,
-                engineering and manufacturing industries in Wales, along with a large network of candidates and clients.
-                I have recruited for a variety of companies; from start-ups and SMEs, right through to blue-chip
-                organisations and global brands.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
               </p>
             </Grid>
           </Grid>
@@ -176,30 +151,22 @@ export default function Home() {
                   <ListItemIcon>
                     <LocationOnIcon color="primary" fontSize="large" />
                   </ListItemIcon>
-                  <ListItemText primary="Location" secondary="Welsh ICE, Caerphilly, CF83 3GG" />
+                  <ListItemText primary="Location" secondary="Edinburgh, Scotland" />
                 </ListItem>
                 <ListItem>
                   <ListItemIcon>
                     <EmailIcon color="primary" fontSize="large" />
                   </ListItemIcon>
-                  <ListItemText primary="Email" secondary="jack.taylor@stemrecruit.co.uk" />
+                  <ListItemText primary="Email" secondary="Gough.Dan@hotmail.com" />
                 </ListItem>
                 <ListItem>
                   <ListItemIcon>
                     <PhoneIcon color="primary" fontSize="large" />
                   </ListItemIcon>
-                  <ListItemText primary="Telephone" secondary="029 2120 2879" />
-                </ListItem>
-                <ListItem>
-                  <img src={rec} className={classesBase.recLogo} alt="" />
+                  <ListItemText primary="Telephone" secondary="+447958350303" />
                 </ListItem>
               </List>
             </Grid>
-          </Grid>
-          <Grid container justify="center" className={classesBase.mb6}>
-            <LinkButton className={classes.button} to="/privacy">
-              Privacy Notice
-            </LinkButton>
           </Grid>
         </Grid>
       </Grid>

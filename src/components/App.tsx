@@ -7,7 +7,6 @@ import { CssBaseline } from "@material-ui/core";
 import HelmetWrapper from "./Layout/HelmetWrapper";
 import Navigation from "./Layout/Navigation";
 import Home from "./Pages/Home";
-import Contact from "./Pages/Contact";
 import Images from "./Pages/Images";
 import ViewImage from "./Pages/ViewImage";
 import Videos from "./Pages/Videos";
@@ -93,17 +92,6 @@ export default function App() {
                   return (
                     <HelmetWrapper title={`${title} - View Video`} description={`${title} - View Video`}>
                       <ViewVideo />
-                    </HelmetWrapper>
-                  );
-                }}
-              />
-              <Route
-                path="/contact"
-                exact
-                render={() => {
-                  return (
-                    <HelmetWrapper title={`${title} - Contact`} description={`Contact with ${title}`}>
-                      <Contact />
                     </HelmetWrapper>
                   );
                 }}

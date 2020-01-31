@@ -122,9 +122,6 @@ export default function TopAppBar(props: TopAppBarProps) {
               <LinkButton className={classesBase.button} to="/videos">
                 Videos
               </LinkButton>
-              <LinkButton className={classesBase.button} to="/contact">
-                Contact
-              </LinkButton>
             </Grid>
           </Grid>
           <Grid item xs>

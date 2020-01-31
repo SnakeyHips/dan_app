@@ -107,7 +107,7 @@ export default function Videos() {
       <Grid container direction="column" justify="center">
         <Grid item xs={12}>
           <img src={blogsimage} className={classesBase.headerImage} alt="" />
-          <div className={classesBase.headerText}>Blogs</div>
+          <span className={classesBase.headerText}>Blogs</span>
         </Grid>
         <Grid container justify="center" className={classesBase.contentContainer}>
           <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>

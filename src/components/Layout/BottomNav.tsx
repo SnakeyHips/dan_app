@@ -4,9 +4,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import HomeIcon from "@material-ui/icons/Home";
-import PagesIcon from "@material-ui/icons/Pages";
-import AssignmentIcon from "@material-ui/icons/Assignment";
-import EventNoteIcon from "@material-ui/icons/EventNote";
+import ImageIcon from "@material-ui/icons/Image";
+import VideoLibraryIcon from "@material-ui/icons/VideoLibrary";
 import { useLocation } from "react-router";
 
 const useStyles = makeStyles({
@@ -37,9 +36,8 @@ export default function BottomNav() {
   return (
     <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
       <BottomNavigationAction label="Home" value="/" icon={<HomeIcon />} component={Link} to="/" />
-      <BottomNavigationAction label="Services" value="/services" icon={<PagesIcon />} component={Link} to="/services" />
-      <BottomNavigationAction label="Jobs" value="/jobs" icon={<AssignmentIcon />} component={Link} to="/jobs" />
-      <BottomNavigationAction label="Blogs" value="/blogs" icon={<EventNoteIcon />} component={Link} to="/blogs" />
+      <BottomNavigationAction label="Images" value="/images" icon={<ImageIcon />} component={Link} to="/images" />
+      <BottomNavigationAction label="Videos" value="/videos" icon={<VideoLibraryIcon />} component={Link} to="/videos" />
     </BottomNavigation>
   );
 }
