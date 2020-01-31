@@ -61,9 +61,7 @@ export default function TopAppBar() {
       <Toolbar>
         <Grid container alignItems="center">
           <Grid item xs>
-            <Grid container justify="center">
-              <h6 className={classesBase.primaryText}>Dan Gough</h6>
-            </Grid>
+            <h6 className={classesBase.primaryText}>Dan Gough</h6>
           </Grid>
           <Grid item xs>
             <Grid container justify="flex-end">
