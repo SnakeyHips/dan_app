@@ -33,7 +33,7 @@ export default function Videos() {
       setLoading(false);
     }
     fetchVideos();
-  }, [videos]);
+  }, [videos.length]);
 
   function handleChangePage(event: unknown, newPage: number) {
     setPage(newPage);
@@ -66,8 +66,8 @@ export default function Videos() {
         labelRowsPerPage={""}
       />
     ) : (
-      <Paper elevation={0} className={classesBase.stemPaper}>
-        <p className={classesBase.textCenter}>No blogs found</p>
+      <Paper elevation={0} className={classesBase.paper}>
+        <p className={classesBase.textCenter}>No videos found :(</p>
       </Paper>
     );
 
@@ -80,7 +80,7 @@ export default function Videos() {
       {filteredVideos.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((video: Video) => {
         return (
           <div key={video.id}>
-            <Paper elevation={0} className={classesBase.stemPaper}>
+            <Paper elevation={0} className={classesBase.paper}>
               <h6 className={clsx(classesBase.primaryText, classesBase.textCenter)}>{video.title}</h6>
               <p>{video.description}</p>
               <p>{video.content}</p>
@@ -108,16 +108,15 @@ export default function Videos() {
         </Grid>
         <Grid container justify="center" className={classesBase.contentContainer}>
           <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
-            <h4 className={clsx(classesBase.contentTitle, classesBase.mb3)}>News &amp; Advice Blogs</h4>
+            <h4 className={clsx(classesBase.contentTitle, classesBase.mb3)}>Dan's Rockin' Videos</h4>
             <p>
-              Keep up to date with the latest industry news, as well as regular activites offering recruitment and
-              careers advice provided by Stem Skills &amp; Recruitment.
+              Here are some shit videos I've made. Enjoy!
             </p>
           </Grid>
           <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
             <form onSubmit={handleSubmitSearch}>
               <TextField
-                className={clsx(classesBase.textField, classesBase.whiteTextField)}
+                className={clsx(classesBase.textField, classesBase.searchTextField)}
                 variant="filled"
                 margin="dense"
                 fullWidth

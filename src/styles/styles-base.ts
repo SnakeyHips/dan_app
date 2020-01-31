@@ -1,4 +1,4 @@
-import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
+import { createStyles, Theme, makeStyles, fade } from "@material-ui/core/styles";
 
 const useStylesBase = makeStyles((theme: Theme) =>
   createStyles({
@@ -7,7 +7,7 @@ const useStylesBase = makeStyles((theme: Theme) =>
       display: "flex",
       "& a": {
         color: theme.palette.primary.main,
-        textDecoration: "unset"
+        textDecoration: "unset",
       },
       "& p": {
         fontSize: "1rem",
@@ -21,11 +21,14 @@ const useStylesBase = makeStyles((theme: Theme) =>
       },
       "& h6": {
         fontSize: "1.25rem",
-        fontWeight: 500,
+        fontWeight: 700,
         lineHeight: 1.6,
         letterSpacing: "0.0075em",
         marginTop: 8,
         marginBottom: 8
+      },
+      "& .MuiButton-root": {
+        fontWeight: 700
       },
       "& .MuiExpansionPanel-root:before": {
         backgroundColor: "unset !important"
@@ -39,12 +42,12 @@ const useStylesBase = makeStyles((theme: Theme) =>
         boxShadow: "none !important"
       }
     },
-    whiteTextField: {
+    searchTextField: {
       "& .MuiFilledInput-root": {
-        backgroundColor: "white !important"
+        backgroundColor: theme.palette.background.paper
       },
       "& .MuiFilledInput-root:hover": {
-        backgroundColor: "rgba(34, 183, 113, 0.09) !important"
+        backgroundColor: fade(theme.palette.background.paper, 0.9)
       }
     },
     paper: {
@@ -54,21 +57,6 @@ const useStylesBase = makeStyles((theme: Theme) =>
     viewPaper: {
       marginTop: theme.spacing(3),
       padding: theme.spacing(3)
-    },
-    select: {
-      marginBottom: `${theme.spacing(3)}px !important`,
-      "& .MuiFilledInput-root": {
-        borderRadius: "4px !important",
-        backgroundColor: "rgba(0, 0, 0, 0.09) !important"
-      },
-      "& .MuiFilledInput-underline:before ": {
-        borderBottom: "none !important"
-      },
-      "& .MuiFilledInput-underline:after": {
-        marginRight: "2px !important",
-        marginLeft: "2px !important",
-        borderRadius: "4px !important"
-      }
     },
     textCenter: {
       textAlign: "center"
@@ -129,7 +117,7 @@ const useStylesBase = makeStyles((theme: Theme) =>
       }
     },
     boldText: {
-      fontWeight: 500
+      fontWeight: 700
     },
     button: {
       margin: theme.spacing(1)
@@ -162,9 +150,8 @@ const useStylesBase = makeStyles((theme: Theme) =>
       bottom: 0,
       right: 0,
       padding: theme.spacing(4),
-      color: "#FCFCFC",
       fontSize: "3.5rem",
-      fontWeight: 500,
+      fontWeight: 700,
       lineHeight: "3.5rem",
       letterSpacing: "0.00938em",
       [theme.breakpoints.down("md")]: {
@@ -185,7 +172,7 @@ const useStylesBase = makeStyles((theme: Theme) =>
     },
     contentTitle: {
       fontSize: "2.125rem",
-      fontWeight: 500,
+      fontWeight: 700,
       lineHeight: 1.17,
       letterSpacing: "0.00735em",
       marginTop: 8,

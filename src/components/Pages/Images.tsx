@@ -33,7 +33,7 @@ export default function Images() {
       setLoading(false);
     }
     fetchImages();
-  }, [images]);
+  }, [images.length]);
 
   function handleChangePage(event: unknown, newPage: number) {
     setPage(newPage);
@@ -66,8 +66,8 @@ export default function Images() {
         labelRowsPerPage={""}
       />
     ) : (
-      <Paper elevation={0} className={classesBase.stemPaper}>
-        <p className={classesBase.textCenter}>No blogs found</p>
+      <Paper elevation={0} className={classesBase.paper}>
+        <p className={classesBase.textCenter}>No images found :(</p>
       </Paper>
     );
 
@@ -80,7 +80,7 @@ export default function Images() {
       {filteredImages.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((image: Image) => {
         return (
           <div key={image.id}>
-            <Paper elevation={0} className={classesBase.stemPaper}>
+            <Paper elevation={0} className={classesBase.paper}>
               <h6 className={clsx(classesBase.primaryText, classesBase.textCenter)}>{image.title}</h6>
               <p>{image.description}</p>
               <p>{image.content}</p>
@@ -108,16 +108,15 @@ export default function Images() {
         </Grid>
         <Grid container justify="center" className={classesBase.contentContainer}>
           <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
-            <h4 className={clsx(classesBase.contentTitle, classesBase.mb3)}>News &amp; Advice Blogs</h4>
+            <h4 className={clsx(classesBase.contentTitle, classesBase.mb3)}>Dan's Rockin' Images</h4>
             <p>
-              Keep up to date with the latest industry news, as well as regular activites offering recruitment and
-              careers advice provided by Stem Skills &amp; Recruitment.
+              Here are some kick ass images I've made. Enjoy!
             </p>
           </Grid>
           <Grid item md={8} sm={10} xs={12} className={classesBase.mb3}>
             <form onSubmit={handleSubmitSearch}>
               <TextField
-                className={clsx(classesBase.textField, classesBase.whiteTextField)}
+                className={clsx(classesBase.textField, classesBase.searchTextField)}
                 variant="filled"
                 margin="dense"
                 fullWidth

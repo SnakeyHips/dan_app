@@ -1,5 +1,5 @@
 import React, { useState, MouseEvent } from "react";
-import { createStyles, Theme, makeStyles, useTheme } from "@material-ui/core/styles";
+import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -18,7 +18,7 @@ import useStylesBase from "../../styles/styles-base";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     appBar: {
-      backgroundColor: "rgba(255, 255, 255, 0.8)",
+      backgroundColor: theme.palette.background.paper,
       boxShadow: "none"
     },
     logo: {
@@ -36,7 +36,6 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function TopAppBar() {
   const classes = useStyles();
   const classesBase = useStylesBase();
-  const theme: Theme = useTheme();
   const [anchorEl, setAnchorEl] = useState<undefined | HTMLElement>(undefined);
   const facebook: string = "https://facebook.com";
   const twitter: string = "https://twitter.com";
@@ -63,7 +62,7 @@ export default function TopAppBar() {
         <Grid container alignItems="center">
           <Grid item xs>
             <Grid container justify="center">
-              <h6>Dan Gough</h6>
+              <h6 className={classesBase.primaryText}>Dan Gough</h6>
             </Grid>
           </Grid>
           <Grid item xs>
@@ -96,7 +95,7 @@ export default function TopAppBar() {
         <Grid container alignItems="center">
           <Grid item xs>
             <Grid container alignItems="center">
-              <h6>Dan Gough</h6>
+              <h6 className={classesBase.primaryText}>Dan Gough</h6>
             </Grid>
           </Grid>
           <Grid item xs>

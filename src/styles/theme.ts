@@ -1,17 +1,17 @@
 import { createMuiTheme, Theme, fade } from "@material-ui/core/styles";
-import grey from "@material-ui/core/colors/grey";
+import { grey, amber } from "@material-ui/core/colors";
 
-const Theme: Theme = createMuiTheme({
+const theme: Theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#5990F2"
+      main: amber[500]
     },
     secondary: {
-      main: fade("#5990F2", 0.1)
+      main: fade(amber[500], 0.1)
     },
     background: {
-      default: "#1F1B22",
-      paper: "#27262E"
+      default: "#2E3032",
+      paper: "#1F2123"
     },
     text: {
       primary: grey[50]
@@ -23,4 +23,4 @@ const Theme: Theme = createMuiTheme({
   }
 });
 
-export default Theme;
+export default theme;

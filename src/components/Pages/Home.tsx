@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
       margin: theme.spacing(4)
     },
     expansionSummary: {
-      fontWeight: 500,
+      fontWeight: 700,
       margin: 0
     },
     fillHeight: {
